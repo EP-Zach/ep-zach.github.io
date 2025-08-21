@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Active Work Orders – Zachary's Team</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    #clock {
+      font-size: 1.2em;
+      margin-top: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background-color: #34495e;
+      color: white;
+    }
+    .status-green { background-color: #d4edda; }
+    .status-yellow { background-color: #fff3cd; }
+    .status-red { background-color: #f8d7da; }
+    .ticker {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      font-size: 1.1em;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    marquee {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Active Work Orders – Zachary's Team</h1>
+    <div id="clock"></div>
+  </div>
+
+  <table>
+    <tr>
+      <th>Job #</th>
+      <th>Customer</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Status</th>
+      <th>Urgency</th>
+      <th>Due Date</th>
+    </tr>
+    <tr class="status-green">
+      <td>1023</td>
+      <td>Smith HVAC</td>
+      <td>Memphis</td>
+      <td>TN</td>
+      <td>On Track</td>
+      <td>⏳</td>
+      <td>Aug 22</td>
+    </tr>
+    <tr class="status-red">
+      <td>1045</td>
+      <td>Jones Electric</td>
+      <td>Nashville</td>
+      <td>TN</td>
+      <td>Urgent</td>
+      <td>⚠️</td>
+      <td>Aug 21</td>
+    </tr>
+    <tr class="status-yellow">
+      <td>1067</td>
+      <td>Delta Plumbing</td>
+      <td>Jackson</td>
+      <td>TN</td>
+      <td>Needs Attention</td>
+      <td>⏳</td>
+      <td>Aug 23</td>
+    </tr>
+  </table>
+
+  <div class="ticker">
+    <marquee>Job #1023 – AC Repair – Memphis, TN – Due: Aug 22 – Status: On Track | Job #1045 – Electrical – Nashville, TN – Due: Aug 21 – Status: Urgent ⚠️ | Job #1067 – Plumbing – Jackson, TN – Due: Aug 23 – Status: Needs Attention ⏳</marquee>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent = now.toLocaleString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
